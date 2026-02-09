@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Regex Testing Application</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Trirong"><link
+      href="https://fonts.googleapis.com/css2?family=Sono:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="static/styles.css"/>
+</head>
+    <body>
+        <h1 class="title">Test RegEx Patterns</h1>
+        <form method="post" action="{{ url_for('home') }}" onsubmit="return saveDivContent()">
+
+           <div class="container">
+             <div class="subContainer1 flexbox1">
+                   <div class="div-regex">
+                       <h2 class="subtitle">Regular Expression</h2>
+                       <textarea class="regex" name="regex" cols="100" rows="4">{{ r_text }}</textarea>
+                    </div>
+                   <div class="action actionFlexbox">
+                        <div class="div-checkbox">
+                            <input class="checkbox" type="checkbox" id="option1" name="checkbox" value="ignore" {% if ignore %}checked{% endif %}>
+                            <label for="option1" class="btn">Ignore Case</label>
+                         </div>
+                            <input class="btn submit" type="submit" value="Go" />
+                            <input class="btn clear" type="submit" value="clear" />
+                    </div>
+                   <div class="input">
+
+                        <div class="status-flexbox">
+                            <h2 class="subtitle">Sample Text</h2>
+                            <div class="total-lines" style="">
+                                {% if input_list|length > 0 %}
+                                <span style="padding:0;margin:0;">{{ input_list|length }} lines</span>
+                                {% endif %}
+                            </div>
+                            <div class="matched-lines">
+                                {% if matched_list|length > 0 %}
+                                <div class="yellow"></div> <span style="inline-block">{{ matched_list|length }}  matched<span>.
+                                {% endif %}
+                            </div>
+                            <div class="unmatched-lines">
+                                {% if unmatched_list|length > 0 %}
+                                <div class="red"></div> <span style="inline-block">{{ unmatched_list|length }} not matched</span>.
+                                {% endif %}
+                            </div>
+                        </div>
+                <!--    <textarea name="input" class="inputText" cols="100" rows="31">{{ input }}</textarea>-->
+                       <div id="input_div_content" class="inputText" contenteditable="true">
+                           {% if input_list == null %}
+                           {{ input }}
+                           {% else %}
+                           {% for item in input_list %}
+                           {% if item in matched_list %}
+                           <div class="server-side matched_item">{{item}}</div>
+                           {% else %}
+                           <div class="server-side unmatched_item">{{item}}</div>
+                           {% endif %}
+                           {% endfor %}
+                           {% endif %}
+                       </div>
+                       <input type="hidden" name="input" id="hidden_input">
+
+                   </div>
+             </div>
+               <div class="subContainer2 flexbox2">
+                    <h2 class="subtitle">Match Result</h2>
+                   <div class="output">
+
+                        <div id="output_div_content"  class="outputText" contenteditable="false">
+                        {% if pattern_error %}
+                            <div id="output_sub_div_content" style="display:flex;flex-direction:column;gap:3px;">{{ pattern_error }}</div>
+                        {% else %}
+                        {% for result in result_list %}
+                            <div id="output_sub_div_content" style="display:flex;flex-direction:column;gap:3px;">
+                            <div id="index"><span style="display:block;font-weight:bold;">Text {{ loop.index }}:</span><span>{{ input_list[loop.index - 1] }}</span></div>
+                            {% if result != None %}
+                            {% if result[0] == "Not matched" %}
+                            <div id="notMatched"><span style="color:red;font-size:1rem;font-weight:bold">{{"Not Matched"}}:</span><span>{{"☝️ text not matched."  }}</span></div>
+                            {% else %}
+                            {% for grp in result %}
+                            <div class="Group"><span style="display:inline;color:blue;font-weight:bold;">Group-{{ loop.index - 1 }}:</span><span>{{ grp }}</span></div>
+                            {% endfor %}
+                            {% endif %}
+                            {% else %}
+                            <span id="unidentified" style="display:block;color:red;font-weight:bold;">{{ result }}</span>
+                            {% endif %}
+                            <hr />
+                            </div>
+                        {% endfor %}
+                        {% endif %}
+                        </div>
+
+                   </div>
+
+                </div>
+           </div>
+
+        </form>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="static/index.js"></script>
+    </body>
+</html>
