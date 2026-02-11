@@ -8,29 +8,33 @@
       href="https://fonts.googleapis.com/css2?family=Sono:wght@400;700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="static/styles.css"/>
+    <link rel="stylesheet" href="static/styles1.css"/>
 </head>
     <body>
         <h1 class="title">Test RegEx Patterns</h1>
         <form method="post" action="{{ url_for('home') }}" onsubmit="return saveDivContent()">
 
            <div class="container">
+
              <div class="subContainer1 flexbox1">
-                   <div class="div-regex">
-                       <h2 class="subtitle">Regular Expression</h2>
-                       <textarea class="regex" name="regex" cols="100" rows="4">{{ r_text }}</textarea>
+                  <h2 class="subtitle">Regular Expression</h2>
+                    <div class="div-regex-class">
+
+                        <!--  <textarea class="regex" name="regex" cols="100" rows="4">{{ r_text }}</textarea>-->
+                         <div id="div_regex-input" class="regex" contenteditable="true">{{ r_text }}</div>
+                         <input type="hidden" name="regex" id="hidden_regex_input">
                     </div>
-                   <div class="action actionFlexbox">
-                        <div class="div-checkbox">
+
+                    <div class="action actionFlexbox">
+                        <div class="div-checkbox-flex">
                             <input class="checkbox" type="checkbox" id="option1" name="checkbox" value="ignore" {% if ignore %}checked{% endif %}>
                             <label for="option1" class="btn">Ignore Case</label>
-                         </div>
                             <input class="btn submit" type="submit" value="Go" />
                             <input class="btn clear" type="submit" value="clear" />
-                    </div>
-                   <div class="input">
+                        </div>
+                      </div>
 
-                        <div class="status-flexbox">
+                    <div class="status-flexbox">
                             <h2 class="subtitle">Sample Text</h2>
                             <div class="total-lines" style="">
                                 {% if input_list|length > 0 %}
@@ -48,7 +52,9 @@
                                 {% endif %}
                             </div>
                         </div>
-                <!--    <textarea name="input" class="inputText" cols="100" rows="31">{{ input }}</textarea>-->
+
+                   <div class="input">
+                 <!--    <textarea name="input" class="inputText" cols="100" rows="31">{{ input }}</textarea>-->
                        <div id="input_div_content" class="inputText" contenteditable="true">
                            {% if input_list == null %}
                            {{ input }}
@@ -66,8 +72,9 @@
 
                    </div>
              </div>
+
                <div class="subContainer2 flexbox2">
-                    <h2 class="subtitle">Match Result</h2>
+                   <h2 class="subtitle">Match Result</h2>
                    <div class="output">
 
                         <div id="output_div_content"  class="outputText" contenteditable="false">

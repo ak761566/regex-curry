@@ -10,7 +10,11 @@ function testRegexPattern(){
 
 function saveDivContent(){
     var input_content = document.querySelector("#input_div_content").textContent;
+    var regex = document.querySelector("#div_regex-input").textContent;
+
     document.querySelector("#hidden_input").value = input_content
+    document.querySelector("#hidden_regex_input").value = regex;
+
     //alert(document.querySelector("#hidden_input").value)
 }
 
@@ -23,9 +27,11 @@ testRegexPattern()
 
 
 $(".btn.clear").click( function(){
- $(".regex").val('')
- $(".inputText").html("")
- $(".outputText").val('')
+    //alert($("#hidden_regex_input").val())
+    //$(".regex").val('')
+    $("#div_regex-input").html('')
+    $(".inputText").html("")
+    $(".outputText").val('')
 })
 
 $("#input_div_content").keydown(function(e){

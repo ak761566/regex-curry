@@ -30,8 +30,9 @@ def home():
     if request.method == 'GET':
         return render_template("index.html")
     else:
+        # print(request.form['regex'])
+        # print(request.form['input'])
         regex_text = request.form['regex']
-
         sample_text = re.sub(r'^\s+', '', request.form['input'], flags=re.MULTILINE)
 
         input_list = [item for item in sample_text.split('\n') if len(item.strip()) > 0]

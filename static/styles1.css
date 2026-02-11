@@ -1,11 +1,19 @@
+*{
+    margin: 0;
+
+}
+
 body{
     font-family: "sono", sans-serif;
+    font-size: small;
     background-color: #F8E8EE;
 }
 
 .container{
+    /*border:1px solid black;*/
     display: flex;
-    height: 60%;
+    width:100%;
+    height: 80vh;
     justify-content: center;
     align-items: center;
     gap: 0rem;
@@ -14,35 +22,49 @@ body{
 .flexbox1{
     display: flex;
     /*height: 100%;*/
+    justify-content: space-between;
+    align-items: center;
     flex-direction: column;
     gap: 1rem;
 }
 
-.div-regex{
-
+.div-regex-class{
+    border: 1px solid red;
+    width: 100%;
 }
 
-.regex {
-    border: 0rem outset pink;
-    outline: 0.5rem solid khaki;
+#div_regex-input{
+    border: 0.5rem outset pink;
+    /*outline: 0.5rem solid khaki;*/
     box-shadow: 0 0 0 0.5rem skyblue;
     outline-offset: 0.5rem;
-    width:80%;
+    outline-offset: 0.5rem;
     border-radius: 12px;
-    font-weight: bold;
-    margin-bottom: 5px;
-
+    width: 50em;
+    height: 8vh;
+    white-space: pre-wrap;
+    overflow-y: scroll;
 }
 
-.actionFlexbox{
+.div-checkbox-flex{
+    /*border: 1px solid black;*/
     display: flex;
-    gap: 1rem;
+    justify-content: space-between;
+    gap: 2rem;
+    width: 100%;
+    height: 3vh;
+    margin-bottom: 4%;
 }
 
 .status-flexbox{
     display: flex;
-    gap: 2rem;
-    margin-bottom: 2px;
+    gap: 1rem;
+    width: 100%;
+    height: 3vh;
+}
+
+.input{
+
 }
 
 .total-lines, .matched-lines, .unmatched-lines{
@@ -72,49 +94,54 @@ body{
     background-color:#FF7444;
 }
 
-.inputText{
-    border: 0.5rem outset pink;
-    outline: 0.5rem solid khaki;
-    box-shadow: 0 0 0 0.5rem skyblue;
-    outline-offset: 0.5rem;
-    border-radius: 12px;
-    width: 80%;
-    height:60vh;
+
+#input_div_content{
+     border: 0.5rem outset pink;
+     /*outline: 0.5rem solid khaki;*/
+     box-shadow: 0 0 0 0.5rem skyblue;
+     outline-offset: 0.5rem;
+     border-radius: 12px;
+     width: 50em;
+     height:53vh;
+
     display: flex;
     padding-left: 1px ; /* it will display cursor in the contenteditable div*/
     flex-direction: column;
     overflow-y: scroll;
     white-space: pre-wrap;
-
 }
+
 
 .flexbox2{
     display: flex;
     /*height: 100%;*/
+    justify-content: space-between;
+    align-items: center;
     flex-direction: column;
     gap: 1rem;
 }
 
 .output{
-  width:80%;
-  height: 80vh;
+    width: 80%;
+    height: 75vh;
 }
 
-.outputText{
+#output_div_content{
     border: 0.5rem outset pink;
-    outline: 0.5rem solid khaki;
+    /*outline: 0.5rem solid khaki;*/
     box-shadow: 0 0 0 1rem skyblue;
     outline-offset: 0.5rem;
     border-radius: 12px;
-    height: 90%;
-    /*width: 800px;*/
-    /*height: 70vh;*/
+
+    width: 50em;
+    height: 98%;
+
+
     display: flex;
     padding-left: 1px ; /* it will display cursor in the contenteditable div*/
     flex-direction: column;
     overflow-y: scroll;
     white-space: pre-wrap;
-
 }
 
 .btn{
@@ -133,7 +160,7 @@ body{
 
  .title {
     text-align: center;
-    margin-bottom: 1rem;
+    margin-bottom: 3%;
  }
 
 .bigger-text{
@@ -153,11 +180,10 @@ body{
     background-color:#FF7444;
 }
 
+
 @media (max-width: 1250px){
 
    .container{
     flex-direction: column;
     height: 100%;
-}
-
 }
