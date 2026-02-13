@@ -40,19 +40,14 @@ $(".btn.clear").click(function(){
 
 document.querySelector("#input_div_content").addEventListener("paste", function(e){
     e.preventDefault()
-    const pastedData = (e.clipboardData).getData("text");
+    const pastedData = (e.clipboardData).getData("text/plain")+ "\n";
     const selection = window.getSelection();
     //console.log(pastedData)
     if (!selection.rangeCount) return;
     selection.deleteFromDocument();
-    pElem = document.createElement('p')
-    textNode = document.createTextNode(pastedData)
-    pElem.appendChild(textNode)
-    selection.getRangeAt(0).insertNode(pElem)
-    //selection.getRangeAt(0).insertNode(document.createTextNode(pastedData))
-    selection.collapseToEnd()
-    //selection.getRangeAt(0).insertNode(document.createElement('br'))
 
+    selection.getRangeAt(0).insertNode(document.createTextNode(pastedData))
+    selection.collapseToEnd()
 })
 
 
@@ -60,13 +55,7 @@ $("#input_div_content").keydown(function(e){
   if(e.key == "Enter"){
    if ($(".server-side").length){
         $(".server-side").removeClass("matched_item unmatched_item")
-    }else{
-
-        document.execCommand('insertLineBreak');
-        //document.execCommand('insertParagraph')
     }
-
-
     }
 })
 
