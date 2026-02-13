@@ -31,7 +31,7 @@ def home():
         return render_template("index.html")
     else:
         # print(request.form['regex'])
-        # print(request.form['input'])
+        print("input: ", request.form['input'])
         regex_text = request.form['regex']
         sample_text = re.sub(r'^\s+', '', request.form['input'], flags=re.MULTILINE)
 

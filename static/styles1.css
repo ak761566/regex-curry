@@ -9,6 +9,7 @@ body{
     background-color: #F8E8EE;
 }
 
+
 .container{
     /*border:1px solid black;*/
     display: flex;
@@ -44,7 +45,17 @@ body{
     height: 8vh;
     white-space: pre-wrap;
     overflow-y: scroll;
+    font-size: 15px;
+    font-weight: bold;
 }
+
+#div_regex-input[contenteditable]:empty:before {
+ content: attr(placeholder);
+ color: gray;
+ pointer-events: none;
+ display: block;
+}
+
 
 .div-checkbox-flex{
     /*border: 1px solid black;*/
@@ -109,6 +120,16 @@ body{
     flex-direction: column;
     overflow-y: scroll;
     white-space: pre-wrap;
+
+    font-size: 15px;
+
+}
+
+#input_div_content[contenteditable]:empty:before {
+ content: attr(placeholder);
+ color: gray;
+ pointer-events: none;
+ display: block;
 }
 
 
@@ -142,6 +163,9 @@ body{
     flex-direction: column;
     overflow-y: scroll;
     white-space: pre-wrap;
+
+    font-size: 15px;
+    font-weight: bold;
 }
 
 .btn{

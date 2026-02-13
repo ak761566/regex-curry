@@ -21,7 +21,7 @@
                     <div class="div-regex-class">
 
                         <!--  <textarea class="regex" name="regex" cols="100" rows="4">{{ r_text }}</textarea>-->
-                         <div id="div_regex-input" class="regex" contenteditable="true">{{ r_text }}</div>
+                         <div id="div_regex-input" class="regex" contenteditable="true" placeholder="Enter regular expression here..">{{ r_text }}</div>
                          <input type="hidden" name="regex" id="hidden_regex_input">
                     </div>
 
@@ -55,7 +55,7 @@
 
                    <div class="input">
                  <!--    <textarea name="input" class="inputText" cols="100" rows="31">{{ input }}</textarea>-->
-                       <div id="input_div_content" class="inputText" contenteditable="true">
+                       <div id="input_div_content" class="inputText" contenteditable="true" placeholder="Enter test strings here...">
                            {% if input_list == null %}
                            {{ input }}
                            {% else %}
